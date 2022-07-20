@@ -78,20 +78,58 @@ public: // Interface (API) - These methods can be accessed using object_name.fun
         // your code here 
     }    // object_name.ClearScreen() 
 
-    void displayClocks(void)
-    {
-        // your code here 
-    }  // object_name.displayClocks()
+    void displayClocks(void){
+        cout << nCharString(27, '*') << "     " << nCharString(27, '*') << endl;
+        cout << "*" << "     " << "12 - Hour Clock" << "     " << "*";
+	    cout << "     "<< "*" << "     " << "24 - Hour Clock" << "     " << "*" << endl;
+	    cout << "*" << nCharString(5, ' ');
+	    displayAt12(); 
+	    cout << nCharString(9, ' ') <<  "*";
+	    cout << nCharString(5, ' ') << "*     ";
+	    displayAt24();
+	    cout << nCharString(12, ' ') << "*" << endl;
+	    cout << nCharString(27, '*') << "     " << nCharString(27, '*') << endl;
+    }
+
 
     void printMenu(void)
     {
-        // your code here 
+        int choice = 0;
+        
+        cout << "**************************" << endl;
+        cout << "* 1 - Add Hour           *" << endl;
+        cout << "* 2 - Add Minute         *" << endl;
+        cout << "* 3 - Add Second         *" << endl;
+        cout << "* 4 - Exit Program       *" << endl;
+        cout << "**************************" << endl;
+        
+        cin >> choice;
+        
+        if(choice == 1){
+            addOneHour();
+            displayClocks();
+            break;
+        }
+        
+        else if(choice == 2){
+            addOneMinute();
+            displayClocks();
+            break;
+        }
+        
+        else if(choice == 3){
+            addOneSecond();
+            displayClocks();
+            break;
+        }
+        
+        else if{choice == 4){
+            cout << "Exit" << endl;
+            break;
+        }
     }
 
-    unsigned int getMenuChoice(unsigned int maxChoice)
-    {
-        // your code here 
-    };
+    
 
     void Init(unsigned int Hour, unsigned int Minute, unsigned int Second) // Used to init the data
     {
